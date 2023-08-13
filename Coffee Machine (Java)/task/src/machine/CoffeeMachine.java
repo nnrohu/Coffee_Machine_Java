@@ -1,13 +1,19 @@
 package machine;
 
+import java.util.Scanner;
+
 public class CoffeeMachine {
     public static void main(String[] args) {
-        System.out.println("Starting to make a coffee\n" +
-                "Grinding coffee beans\n" +
-                "Boiling water\n" +
-                "Mixing boiled water with crushed coffee beans\n" +
-                "Pouring coffee into the cup\n" +
-                "Pouring some milk into the cup\n" +
-                "Coffee is ready!");
+        int water = 200;
+        int milk = 50;
+        int beans = 15;
+
+        Scanner sc = new Scanner(System.in);
+        int cup = sc.nextInt();
+
+        System.out.println("For " + cup + " cups of coffee you will need:");
+        System.out.println((water * cup) + " ml of water");
+        System.out.println((milk * cup) + " ml of milk");
+        System.out.println((beans * cup) + " g of coffee beans");
     }
 }
