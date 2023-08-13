@@ -4,26 +4,59 @@ import java.util.Scanner;
 
 public class CoffeeMachine {
     public static void main(String[] args) {
+        Coffee coffee = new Coffee();
+        System.out.println(coffee);
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Write how many ml of water the coffee machine has:");
-        int water = sc.nextInt();
-        System.out.println("Write how many ml of milk the coffee machine has:");
-        int milk = sc.nextInt();
-        System.out.println("Write how many grams of coffee beans the coffee machine has:");
-        int beans = sc.nextInt();
-        System.out.println("Write how many cups of coffee you will need:");
-        int cup = sc.nextInt();
 
-        int waterPossible = water / 200, milkPossible = milk / 50, beansPossible = beans / 15;
-        int possibleCup = Math.min(waterPossible, Math.min(milkPossible, beansPossible));
+        System.out.println("Write action (buy, fill, take):");
+        String action = sc.nextLine();
 
-        if (cup == possibleCup) {
-            System.out.println("Yes, I can make that amount of coffee");
-        } else if (possibleCup < cup) {
-            System.out.println("No, I can make only " + possibleCup + " cup(s) of coffee");
-        } else {
-            System.out.println("Yes, I can make that amount of coffee (and even " + (possibleCup - cup) + " more than that)");
+        switch (action){
+            case "buy":
+                buy(sc,coffee);
+                break;
+            case "fill":
+                fill(sc,coffee);
+                break;
+            case "take":
+                coffee.take();
+                System.out.println(coffee);
+                break;
+            default:
+                System.out.println("wrong input");
         }
+    }
+
+
+    private static void fill(Scanner sc, Coffee coffee){
+        System.out.println("Write how many ml of water you want to add:");
+        int water = sc.nextInt();
+        System.out.println("Write how many ml of milk you want to add:");
+        int milk = sc.nextInt();
+        System.out.println("Write how many grams of coffee beans you want to add:");
+        int beans = sc.nextInt();
+        System.out.println("Write how many disposable cups you want to add:");
+        int cup = sc.nextInt();
+        coffee.fill(water,milk,beans,cup);
+        System.out.println(coffee);
+    }
+    private static void buy(Scanner sc, Coffee coffee) {
+        System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:");
+        int option = sc.nextInt();
+        switch (option){
+            case 1:
+                coffee.buyEspresso();
+                break;
+            case 2:
+                coffee.buyLatte();
+                break;
+            case 3:
+                coffee.buyCappuccino();
+                break;
+            default:
+                System.out.println("wrong input");
+        }
+        System.out.println(coffee);
     }
 }
