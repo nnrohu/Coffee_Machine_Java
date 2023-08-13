@@ -5,10 +5,19 @@ public class Coffee {
             cups = 9, money = 550;
 
     public void buyEspresso() {
-        if (water < 250) return;
-        if (beans < 16) return;
-        if (money < 4) return;
-
+        if (water < 250) {
+            System.out.println("Sorry, not enough water!");
+            return;
+        }
+        if (beans < 16) {
+            System.out.println("Sorry, not enough coffee beans!");
+            return;
+        }
+        if (money < 4) {
+            System.out.println("Sorry, not enough money!");
+            return;
+        }
+        System.out.println("I have enough resources, making you a coffee!");
         water -= 250;
         beans -= 16;
         money += 4;
@@ -16,10 +25,22 @@ public class Coffee {
     }
 
     public void buyLatte() {
-        if (water < 350) return;
-        if (milk < 75) return;
-        if (beans < 20) return;
-        if (money < 7) return;
+        if (water < 350) {
+            System.out.println("Sorry, not enough water!");
+            return;
+        }
+        if (milk < 75) {
+            System.out.println("Sorry, not enough milk!");
+            return;
+        }
+        if (beans < 20) {
+            System.out.println("Sorry, not enough coffee beans!");
+            return;
+        }
+        if (money < 7) {
+            System.out.println("Sorry, not enough money!");
+            return;
+        }
 
         water -= 350;
         milk -= 75;
@@ -29,10 +50,22 @@ public class Coffee {
     }
 
     public void buyCappuccino() {
-        if (water < 200) return;
-        if (milk < 100) return;
-        if (beans < 12) return;
-        if (money < 6) return;
+        if (water < 200) {
+            System.out.println("Sorry, not enough water!");
+            return;
+        }
+        if (milk < 100) {
+            System.out.println("Sorry, not enough milk!");
+            return;
+        }
+        if (beans < 12) {
+            System.out.println("Sorry, not enough coffee beans!");
+            return;
+        }
+        if (money < 6) {
+            System.out.println("Sorry, not enough money!");
+            return;
+        }
 
         water -= 200;
         milk -= 100;
@@ -51,16 +84,16 @@ public class Coffee {
     @Override
     public String toString() {
         return "The coffee machine has:\n" +
-                 water + " ml of water\n" +
-                 milk + " ml of milk\n" +
-                 beans + " g of coffee beans\n" +
-                 cups + " disposable cups\n" +
-                 "$" + money + " of money\n";
+                water + " ml of water\n" +
+                milk + " ml of milk\n" +
+                beans + " g of coffee beans\n" +
+                cups + " disposable cups\n" +
+                "$" + money + " of money\n";
     }
 
     public void take() {
-        System.out.println("I gave you $"+ money);
-        money =0;
+        System.out.println("I gave you $" + money);
+        money = 0;
     }
 }
 
